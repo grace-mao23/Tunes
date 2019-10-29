@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "headers.h"
+#include "tunes.h"
 
+// print the entire list
 void print_list(struct song_node * n) {
   printf("[");
   while (n) {
@@ -12,7 +13,7 @@ void print_list(struct song_node * n) {
 }
 
 
-
+// free the entire list
 struct song_node * free_list(struct song_node * n) {
   struct song_node *p;
   while(n) {
