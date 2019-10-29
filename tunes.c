@@ -5,8 +5,8 @@
 // insert node at front
 struct song_node * insert_front(struct song_node * n, char * artist, char * title) {
   struct song_node *p = malloc(sizeof(struct song_node));
-  p->name = title;
-  p->artist = artist;
+  strcopy(p->title, title);
+  strcopy(p->artist, artist);
   p->next = n;
   return p;
 }
@@ -18,7 +18,7 @@ struct song_node * insert_front(struct song_node * n, char * artist, char * titl
 void print_list(struct song_node * n) {
   printf("[");
   while (n) {
-    printf(" %s: %s |", n->artist, n->name);
+    printf(" %s: %s |", n->artist, n->title);
     n = n->next;
   }
   printf("]\n");
