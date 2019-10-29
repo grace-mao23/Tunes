@@ -7,11 +7,11 @@ endif
 all: main.o tunes.o
 	$(CC) -o program main.o tunes.o
 
-main.o: main.c headers.h
-	$(CC) -c main.c headers.h
+main.o: main.c tunes.h
+	$(CC) -c main.c tunes.h
 
-tunes.o: tunes.c headers.h
-	$(CC) -c tunes.c headers.h
+tunes.o: tunes.c tunes.h
+	$(CC) -c tunes.c tunes.h
 
 run:
 	./program
