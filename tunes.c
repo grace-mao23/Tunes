@@ -24,6 +24,33 @@ void print_list(struct song_node * n) {
   printf("]\n");
 }
 
+// helper function to compare songs
+int songcmp(struct song_node * p, char * name, char * artist) {
+
+}
+
+// remove a single specified node
+struct song_node * removeNode(struct song_node *front, char * name, char * artist) {
+  struct song_node *p = front;
+  struct song_node *prev = NULL;
+  while (p) {
+    if (songcmp(p, name, artist)) {
+      if (prev) {
+        prev->next = p->next;
+        free(p);
+        return front;
+      } else {
+        front = p->next;
+        free(p);
+        return front;
+      }
+    }
+    prev=p;
+    p=p->next;
+  }
+  return front;
+}
+
 
 // free the entire list
 struct song_node * free_list(struct song_node * n) {
