@@ -2,6 +2,18 @@
 #include <stdlib.h>
 #include "tunes.h"
 
+// insert node at front
+struct song_node * insert_front(struct song_node * n, char * artist, char * title) {
+  struct node *p = malloc(sizeof(struct song_node));
+  p->name = title;
+  p->artist = artist;
+  p->next = n;
+  return p;
+}
+
+// insert node in order
+
+
 // print the entire list
 void print_list(struct song_node * n) {
   printf("[");

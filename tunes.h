@@ -6,3 +6,4 @@ struct song_node{
 
 void print_list(struct song_node * n);
 struct song_node * free_list(struct song_node * n);
+struct song_node * insert_front(struct song_node * n, char * artist, char * title);
