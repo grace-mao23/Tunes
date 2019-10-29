@@ -4,7 +4,7 @@
 
 // insert node at front
 struct song_node * insert_front(struct song_node * n, char * artist, char * title) {
-  struct node *p = malloc(sizeof(struct song_node));
+  struct song_node *p = malloc(sizeof(struct song_node));
   p->name = title;
   p->artist = artist;
   p->next = n;
