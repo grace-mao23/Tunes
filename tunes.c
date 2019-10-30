@@ -26,7 +26,13 @@ void print_list(struct song_node *n) {
 
 // helper function to compare songs
 int songcmp(struct song_node *p, char *name, char *artist) {
+    if () {
+        
+    } if else {
 
+    } else {
+
+    }
 }
 
 // remove a single specified node
