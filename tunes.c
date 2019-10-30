@@ -68,28 +68,62 @@ int songcmp_new(struct song_node *p, struct song_node *q) {
 
 // find song based on artist and song name
 struct song_node *find_song(struct song_node *p, char *name, char *author) {
-  while (p) {
-    if (songcmp_old(p, name, author) == 0) {
-      return p;
+    while (p) {
+        if (songcmp_old(p, name, author) == 0) {
+            return p;
+        }
+        p = p->next;
     }
-    p = p->next;
-  }
-  return NULL;
+    return NULL;
 }
 
 // find first song based on artist
 struct song_node *find_artist(struct song_node *p, char *author) {
-  while (p) {
-    if (strcmp(p->artist, author) == 0) {
-      return p;
+    while (p) {
+        if (strcmp(p->artist, author) == 0) {
+            return p;
+        }
+        p = p->next;
     }
-    p = p->next;
-  }
-  return NULL;
+    return NULL;
 }
 
 // return a pointer to random element in list
+struct song_node *find_random(struct song_node *p) {
+    if (size(p) == 0) {
+        return NULL;
+    }
 
+    int i = rand() % size(p);
+    struct song_node *first = p;
+    struct song_node *second = first->next;
+
+    while (i > 0) {
+        i--;
+        first = second;
+        second = second->next;
+    }
+    return first;
+
+}
+
+// returns the size of a linked list
+int size(struct song_node *p) {
+    struct song_node *first = p;
+    struct song_node *second = first->next;
+
+    if (first == NULL) {
+        return 0;
+    }
+
+    int i = 1;
+    while (second != NULL) {
+        i++;
+        first = second;
+        second = second->next;
+    }
+    return i;
+}
 
 // remove a single specified node
 struct song_node *remove_node(struct song_node *front, char *name, char *author) {
