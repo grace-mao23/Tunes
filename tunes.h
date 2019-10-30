@@ -4,8 +4,12 @@ struct song_node{
   struct song_node *next;
 };
 
-void print_list(struct song_node * n);
-struct song_node * free_list(struct song_node * n);
-struct song_node * insert_front(struct song_node * n, char * artist, char * title);
-int songcmp(struct song_node * p, char * name, char * artist);
-struct song_node * removeNode(struct song_node *front, char * name, char * artist);
+void print_list(struct song_node *n);
+struct song_node *insert_front(struct song_node *n, char *name, char *author);
+struct song_node *insert_sort(struct song_node *n, char *name, char *author);
+int songcmp_old(struct song_node *p, char *name, char *author);
+int songcmp_new(struct song_node *p, struct song_node *q);
+struct song_node *find_song(struct song_node *p, char *name, char *author)
+struct song_node *find_artist(struct song_node *p, char *author)
+struct song_node *remove_node(struct song_node *front, char *name, char *artist);
+struct song_node *free_list(struct song_node *n)
