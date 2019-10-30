@@ -3,16 +3,38 @@
 #include "tunes.h"
 
 // insert node at front
-struct song_node * insert_front(struct song_node *n, char *artist, char *title) {
+struct song_node *insert_front(struct song_node *n, char *author, char *name) {
     struct song_node *p = malloc(sizeof(struct song_node));
-    strcopy(p->title, title);
-    strcopy(p->artist, artist);
+    strcopy(p->title, name);
+    strcopy(p->artist, author);
     p->next = n;
     return p;
 }
 
 // insert node in order
+struct song_node *insert_sort(struct song_node *n, char *author, char *name) {
+    struct song_node *p = malloc(sizeof(struct song_node));
+    strcopy(p->title, name);
+    strcopy(p->artist, author);
+    struct node *head = first;
+    struct node *second = first->next;
 
+    if (songcmp(first, name) > 0) {
+        p->next = first;
+        return p;
+    }
+    while(second != NULL) {
+        if (songcmp(second, p) > 0) {
+            p->next = second;
+            first->next = p;
+            return head;
+        }
+        first = second;
+        second = second->next;
+    }
+    first->next = p;
+    return head;
+}
 
 // print the entire list
 void print_list(struct song_node *n) {
@@ -28,20 +50,26 @@ void print_list(struct song_node *n) {
 // 0 means equal
 // positive means first is larger
 // negative means first is smaller
-int songcmp(struct song_node *p, char *name, char *artist) {
-    if () {
-        
-    } if else {
-
+int songcmpOld(struct song_node *p, char *name, char *author) {
+    if (strcmp(p->artist, author) != 0) {
+        return strcmp(p->artist, author);
     } else {
+        return strcmp(p->title, name);
+    }
+}
 
+int songcmpNew(struct song_node *p, stuct song_node *q) {
+    if (strcmp(p->artist, q->artist) != 0) {
+        return strcmp(p->artist, q->artist);
+    } else {
+        return strcmp(p->title, q->title);
     }
 }
 
 // find song based on artist and song name
 struct song_node * find_song(struct song_node *p, char *name, char *artist) {
   while (p) {
-    if (songcmp(p, name, artist) == 0) {
+    if (songcmpOld(p, name, artist) == 0) {
       return p;
     }
     p = p->next;
