@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "tunes.h"
 #include "library.h"
 
 // helper function to turn character into number 0 to 27
@@ -33,8 +32,8 @@ struct song_node * search_artist(struct song_node *table[27], char *artist) {
 
 // print out all entries under a certain letter
 void print_letter(struct song_node *table[27], char letter) {
-  int letter = letterChar(artist[0]);
-  print_list(table[letter]);
+  int i = letterChar(letter);
+  print_list(table[i]);
 }
 
 // print out all the songs of a certain artist
