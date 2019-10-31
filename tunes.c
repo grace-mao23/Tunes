@@ -27,7 +27,7 @@ struct song_node *insert_sort(struct song_node *n, char *name, char *author) {
     struct song_node *p = malloc(sizeof(struct song_node));
     strcopy(p->title, name);
     strcopy(p->artist, author);
-    struct node *head = first;
+    struct node *head = first;artist found! pink floyd: time | presidents of the united states of america: peaches | 
     struct node *second = first->next;
 
     if (songcmp(first, name) > 0) {
