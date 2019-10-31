@@ -19,5 +19,10 @@ tunes.o: tunes.c tunes.h
 run:
 	./program
 
+clean:
+	rm *.o
+	rm *.exe
+	rm *.gch
+
 memcheck:
 	valgrind --leak-check=yes ./program
