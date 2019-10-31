@@ -4,11 +4,14 @@ else
 	CC = gcc
 endif
 
-all: main.o tunes.o
-	$(CC) -o program main.o tunes.o
+all: main.o tunes.o library.o
+	$(CC) -o program main.o tunes.o library.o
 
-main.o: main.c tunes.h
-	$(CC) -c main.c tunes.h
+main.o: main.c tunes.h library.h
+	$(CC) -c main.c tunes.h library.h
+
+library.o: library.c library.h tunes.h
+	$(CC) -c library.c library.h tunes.h
 
 tunes.o: tunes.c tunes.h
 	$(CC) -c tunes.c tunes.h
