@@ -5,12 +5,11 @@
 
 // print the entire list
 void print_list(struct song_node *n) {
-    printf("[");
     while (n) {
         printf(" %s: %s |", n->artist, n->title);
         n = n->next;
     }
-    printf("]\n");
+    printf("\n");
 }
 
 // insert node at front
@@ -71,7 +70,7 @@ int songcmp_short(struct song_node *p, struct song_node *q) {
 // find song based on artist and song name
 struct song_node *find_song(struct song_node *p, char *name, char *author) {
     while (p) {
-        if (songcmp_old(p, name, author) == 0) {
+        if (songcmp_full(p, name, author) == 0) {
             return p;
         }
         p = p->next;

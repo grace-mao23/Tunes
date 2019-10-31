@@ -7,8 +7,8 @@ struct song_node{
 void print_list(struct song_node *n);
 struct song_node *insert_front(struct song_node *n, char *name, char *author);
 struct song_node *insert_sort(struct song_node *n, char *name, char *author);
-int songcmp_old(struct song_node *p, char *name, char *author);
-int songcmp_new(struct song_node *p, struct song_node *q);
+int songcmp_full(struct song_node *p, char *name, char *author);
+int songcmp_short(struct song_node *p, struct song_node *q);
 struct song_node *find_song(struct song_node *p, char *name, char *author);
 struct song_node *find_artist(struct song_node *p, char *author);
 struct song_node *find_random(struct song_node *p);
