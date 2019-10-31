@@ -1,4 +1,4 @@
-struct song_node{
+struct song_node {
   char title[100];
   char artist[100];
   struct song_node *next;
