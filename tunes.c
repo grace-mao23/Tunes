@@ -154,6 +154,7 @@ struct song_node *free_list(struct song_node *n) {
     struct song_node *p;
     while(n) {
         p = n->next;
+        printf("freeing node: [%s: %s]\n", n->artist, n->title);
         free(n);
         n = p;
     }
