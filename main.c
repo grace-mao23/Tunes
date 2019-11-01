@@ -66,7 +66,7 @@ int main() {
     printf("–––Looking for [hatsune miku]\n");
     print_list(find_artist(head, "hatsune miku"));
 
-    printf("\nTesting Remove:\n");
+    printf("\nTesting Remove\n");
     printf("–––Removing [ariana grande: santa tell me]\n");
     head = remove_node(head, "santa tell me", "ariana grande");
     print_list(head);
@@ -79,5 +79,12 @@ int main() {
     printf("–––Removing [ed sheeran: perfect]\n");
     head = remove_node(head, "perfect", "ed sheeran");
     print_list(head);
+
+    printf("\nTesting Free List\n");
+    head = free_list(head);
+    printf("list after freeing: \n");
+    print_list(head);
+
+    //make sure to test random, both song comps, and size
   return 0;
 }
