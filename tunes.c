@@ -23,6 +23,9 @@ struct song_node *insert_front(struct song_node *n, char *name, char *author) {
 
 // insert node in order
 struct song_node *insert_sort(struct song_node *n, char *name, char *author) {
+    if (n == NULL) {
+      return insert_front(n, name, author);
+    }
     struct song_node *p = malloc(sizeof(struct song_node));
     strcpy(p->title, name);
     strcpy(p->artist, author);
