@@ -41,9 +41,10 @@ void print_letter(struct song_node *table[27], char letter) {
 
 // print out entire library
 void print_library(struct song_node *table[27]) {
-    for (int i = 0; i < 27; i++) {
+    int i = 0;
+    for (; i < 27; i++) {
         if (table[i] != NULL) {
-            printf("%c list\n", (char)(i+97));
+            printf("%c list\n", i + 97);
             print_list(table[i]);
         }
     }

@@ -8,6 +8,7 @@ int main() {
     srand(time(NULL));
 
     printf("\n\nLINKED LIST TESTS\n\n\n");
+
     printf("Testing Insert Front and Print List\n\n");
     struct song_node *head = NULL;
     printf("–––Inserting \"black magic\" by little mix\n");
@@ -161,7 +162,17 @@ int main() {
     print_list(head);
 
     printf("\n\nLIBRATY TESTS\n\n\n");
-    printf("Testing Add Node and Print Library\n\n");
+
+    printf("Testing Letter to Char\n");
+    printf("Testing a\n");
+    printf("Should be: 0\nPrinted: %d\n", letterChar('a'));
+    printf("Testing d\n");
+    printf("Testing y\n");
+    printf("Testing z\n");
+    printf("Testing 6\n");
+    printf("Testing )\n");
+
+    printf("\nTesting Add Node and Print Library\n\n");
     struct song_node *table[27];
     int i = 0;
     for (; i < 27; i++) {
@@ -193,12 +204,13 @@ int main() {
     printf("–––Adding \"despacito\" by luis fonsi\n");
     add_song(table, "despacito", "luis fonsi");
     print_library(table);
+    /*
     printf("–––Adding \"lights\" by ellie goulding\n");
     add_song(table, "lights", "ellie goulding");
     print_library(table);
     printf("–––Adding \"rap god\" by eminem\n");
     add_song(table, "rap god", "eminem");
-    print_library(table);
+    print_library(table);*/
     printf("–––Adding \"santa tell me\" by ariana grande\n");
     add_song(table, "santa tell me", "ariana grande");
     print_library(table);
