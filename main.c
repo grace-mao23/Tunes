@@ -173,6 +173,22 @@ int main() {
     printf("––––List After Freeing: \n");
     print_list(head);
 
+    printf("\nTesting Adding After Freeing\n\n");
+    printf("––––Empty List\n");
+    print_list(head);
+    printf("––––Inserting [\"black magic\" by little mix]\n");
+    head = insert_front(head, "black magic", "little mix");
+    print_list(head);
+    printf("––––Inserting [\"the one that got away\" by katy perry]\n");
+    head = insert_front(head, "the one that got away", "katy perry");
+    print_list(head);
+    printf("––––Inserting [\"the a team\" by ed sheeran]\n");
+    head = insert_front(head, "the a team", "ed sheeran");
+    print_list(head);
+    printf("––––Inserting [\"beautiful people\" by ed sheeran]\n");
+    head = insert_front(head, "beautiful people", "ed sheeran");
+    print_list(head);
+
     printf("\n\nLIBRATY TESTS\n\n\n");
 
     printf("Testing Letter to Char\n\n");
@@ -189,7 +205,7 @@ int main() {
     printf("––––Testing )\n");
     printf("Should be: 26\nPrinted: %d\n", letterChar(')'));
 
-    printf("\nTesting Add Node and Print Library\n\n");
+    printf("\nTesting Add Song and Print Library\n\n");
     struct song_node *table[27];
     int i = 0;
     for (; i < 27; i++) {
@@ -338,9 +354,25 @@ int main() {
 
     printf("\nTesting Free List\n\n");
     printf("––––Printing List\n");
-    print_list(head);
+    print_library(table);
     free_library(table);
     printf("––––Library After Freeing: \n");
-    print_list(head);
+    print_library(table);
+
+    printf("\nTesting Add Song After Freeing\n\n");
+    printf("––––Empty Library\n\n");
+    print_library(table);
+    printf("––––Adding [\"the one that got away\" by katy perry]\n");
+    add_song(table, "the one that got away", "katy perry");
+    print_library(table);
+    printf("––––Adding [\"i kissed a girl\" by katy perry]\n");
+    add_song(table, "i kissed a girl", "katy perry");
+    print_library(table);
+    printf("––––Adding [\"furioso melodia\" by gmtn]\n");
+    add_song(table, "furioso melodia", "gmtn");
+    print_library(table);
+    printf("––––Adding [\"the a team\" by ed sheeran]\n");
+    add_song(table, "the a team", "ed sheeran");
+    print_library(table);
     return 0;
 }

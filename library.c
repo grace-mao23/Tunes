@@ -108,7 +108,7 @@ void free_library(struct song_node *table[27]) {
     int i = 0;
     for (; i < 27; i++) {
         if (table[i] != NULL) {
-            free_list(table[i]);
+            table[i] = free_list(table[i]);
         }
     }
 }
