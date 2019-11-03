@@ -21,7 +21,6 @@ run:
 
 clean:
 	rm *.o
-	rm *.exe
 	rm *.gch
 
 memcheck:

@@ -169,6 +169,7 @@ int main() {
     printf("\nTesting Free List\n\n");
     printf("––––Printing List\n");
     print_list(head);
+    printf("––––Freeing List\n");
     head = free_list(head);
     printf("––––List After Freeing: \n");
     print_list(head);
@@ -188,6 +189,15 @@ int main() {
     printf("––––Inserting [\"beautiful people\" by ed sheeran]\n");
     head = insert_front(head, "beautiful people", "ed sheeran");
     print_list(head);
+    printf("––––Freeing List\n");
+    head = free_list(head);
+    printf("––––List After Freeing: \n");
+    print_list(head);
+    printf("––––Freeing Dummy Lists Used in Tests Before\n");
+    free_list(nothing);
+    free_list(compare);
+    free_list(compare1);
+    free_list(compare2);
 
     printf("\n\nLIBRATY TESTS\n\n\n");
 
@@ -352,8 +362,8 @@ int main() {
     remove_song(table, "perfect", "ed sheeran");
     print_library(table);
 
-    printf("\nTesting Free List\n\n");
-    printf("––––Printing List\n");
+    printf("\nTesting Free Library\n\n");
+    printf("––––Printing Library\n");
     print_library(table);
     free_library(table);
     printf("––––Library After Freeing: \n");
@@ -373,6 +383,10 @@ int main() {
     print_library(table);
     printf("––––Adding [\"the a team\" by ed sheeran]\n");
     add_song(table, "the a team", "ed sheeran");
+    print_library(table);
+    printf("––––Freeing Library\n");
+    free_library(table);
+    printf("––––Library After Freeing: \n");
     print_library(table);
     return 0;
 }
