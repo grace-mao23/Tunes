@@ -5,7 +5,7 @@
 
 // helper function to turn character into number 0 to 27
 int letterChar(char c) {
-    if (c >= 97 || c <= 122) {
+    if (c >= 97 && c <= 122) {
         return ((int)c) % 97;
     } else {
         return 26;
@@ -42,8 +42,11 @@ void print_letter(struct song_node *table[27], char letter) {
 // print out entire library
 void print_library(struct song_node *table[27]) {
     for (int i = 0; i < 27; i++) {
+      if (table[i] != NULL) {
+        printf("%c list\n", (char)(i+97));
         print_list(table[i]);
         printf("\n");
+      }
     }
 }
 
