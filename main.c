@@ -170,7 +170,7 @@ int main() {
     printf("––––Printing List\n");
     print_list(head);
     head = free_list(head);
-    printf("list after freeing: \n");
+    printf("––––List After Freeing: \n");
     print_list(head);
 
     printf("\n\nLIBRATY TESTS\n\n\n");
@@ -335,5 +335,12 @@ int main() {
     printf("––––Removing [\"perfect\" by ed sheeran]\n");
     remove_song(table, "perfect", "ed sheeran");
     print_library(table);
+
+    printf("\nTesting Free List\n\n");
+    printf("––––Printing List\n");
+    print_list(head);
+    free_library(table);
+    printf("––––Library After Freeing: \n");
+    print_list(head);
     return 0;
 }

@@ -158,7 +158,7 @@ struct song_node *remove_node(struct song_node *front, char *name, char *author)
 // free the entire list
 struct song_node *free_list(struct song_node *n) {
     struct song_node *p;
-    while(n) {
+    while(n != NULL) {
         p = n->next;
         printf("freeing node: [%s: %s]\n", n->artist, n->title);
         free(n);

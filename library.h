@@ -9,3 +9,4 @@ void print_library(struct song_node *table[27]);
 void print_artist(struct song_node *table[27], char *author);
 void print_random(struct song_node *table[27]);
 void remove_song(struct song_node *table[27], char *name, char *author);
+void free_library(struct song_node *table[27]);
