@@ -113,6 +113,9 @@ struct song_node *find_random(struct song_node *p) {
 
 // returns the size of a linked list
 int size(struct song_node *p) {
+    if (p == NULL) {
+        return 0;
+    }
     struct song_node *first = p;
     struct song_node *second = first->next;
 

@@ -123,6 +123,26 @@ int main() {
     head = remove_node(head, "perfect", "ed sheeran");
     print_list(head);
 
+    printf("\nTesting Size\n");
+    printf("–––Size of []\n");
+    struct song_node *nothing = NULL;
+    printf("Should be: 0\nPrinted: ");
+    printf("%d\n", size(nothing));
+    printf("–––Size of head\n");
+    printf("Should be: 8\nPrinted: ");
+    printf("%d\n", size(head));
+    printf("–––Size of One-Item List\n");
+    nothing = insert_front(nothing, "holder", "place");
+    printf("Should be: 1\nPrinted: ");
+    printf("%d\n", size(nothing));
+    printf("–––Size of Two-Item List\n");
+    nothing = insert_front(nothing, "steven", "even");
+    printf("Should be: 2\nPrinted: ");
+    printf("%d\n", size(nothing));
+    printf("–––Size of Compare\n");
+    printf("Should be: 5\nPrinted: ");
+    printf("%d\n", size(compare));
+
     printf("\nTesting Free List\n");
     head = free_list(head);
     printf("list after freeing: \n");
