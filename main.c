@@ -307,5 +307,17 @@ int main() {
     print_artist(table, "eminem");
     printf("––––Printing [daddy yankee]\n");
     print_artist(table, "daddy yankee");
+
+    printf("\nTesting Print Random\n\n");
+    printf("––––Printing Library\n");
+    print_library(table);
+    printf("––––Test 1\n");
+    print_random(table);
+    printf("––––Test 2\n");
+    print_random(table);
+    printf("––––Test 3\n");
+    print_random(table);
+    printf("––––Test 4\n");
+    print_random(table);
     return 0;
 }
