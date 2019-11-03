@@ -37,7 +37,7 @@ struct song_node *insert_sort(struct song_node *n, char *name, char *author) {
         p->next = first;
         return p;
     }
-    while(second != NULL) {
+    while (second != NULL) {
         if (songcmp_short(second, p) > 0) {
             p->next = second;
             first->next = p;

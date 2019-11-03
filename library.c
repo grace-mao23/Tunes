@@ -49,9 +49,25 @@ void print_library(struct song_node *table[27]) {
 }
 
 // print out all the songs of a certain artist
-void print_library(struc song_node *table[27], char *author) {
+void print_artist(struct song_node *table[27], char *author) {
     int letter = letterChar(author[0]);
-    
+    struct song_node *artista = search_artist(table, author);
+    if (artista != NULL) {
+        struct song_node *first = artista;
+        struct song_node *second = first->next;
+        while (second != NULL) {
+            if (strcmp(author, first->artist) == 0) {
+                printf("\"%s\" by %s\n", first->title, author);
+            }
+            first = second;
+            second = second->next;
+        }
+        if (strcmp(author, first->artist) == 0) {
+            printf("\"%s\" by %s\n", first->title, author);
+        }
+    } else {
+        printf("artist not found\n");
+    }
 }
 
 // shuffle
