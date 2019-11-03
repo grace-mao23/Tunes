@@ -160,29 +160,53 @@ int main() {
     printf("list after freeing: \n");
     print_list(head);
 
+    printf("\n\nLIBRATY TESTS\n\n\n");
+    printf("Testing Add Node and Print Library\n\n");
     struct song_node *table[27];
     int i = 0;
     for (; i < 27; i++) {
         table[i] = NULL;
     }
-
-    printf("\nLIBRARY TESTS\n");
-    printf("Printing empty library\n");
+    printf("–––Empty Library\n");
     print_library(table);
-    printf("\n---Adding \"black magic\" by little mix\n");
+    printf("\n–––Adding \"black magic\" by little mix\n");
     add_song(table, "black magic", "little mix");
     print_library(table);
-    printf("---Adding more songs to populate the library\n");
+    printf("–––Adding \"the one that got away\" by katy perry\n");
     add_song(table, "the one that got away", "katy perry");
+    print_library(table);
+    printf("–––Adding \"i kissed a girl\" by katy perry\n");
     add_song(table, "i kissed a girl", "katy perry");
+    print_library(table);
+    printf("–––Adding \"furioso melodia\" by gmtn\n");
     add_song(table, "furioso melodia", "gmtn");
+    print_library(table);
+    printf("–––Adding \"the a team\" by ed sheeran\n");
     add_song(table, "the a team", "ed sheeran");
+    print_library(table);
+    printf("–––Adding \"beautiful people\" by ed sheeran\n");
     add_song(table, "beautiful people", "ed sheeran");
     print_library(table);
-    printf("---Searching for \"beautiful people\" by ed sheeran\n");
+    printf("–––Adding \"just give me a reason\" by p!nk\n");
+    add_song(table, "just give me a reason", "p!nk");
+    print_library(table);
+    printf("–––Adding \"despacito\" by luis fonsi\n");
+    add_song(table, "despacito", "luis fonsi");
+    print_library(table);
+    printf("–––Adding \"lights\" by ellie goulding\n");
+    add_song(table, "lights", "ellie goulding");
+    print_library(table);
+    printf("–––Adding \"rap god\" by eminem\n");
+    add_song(table, "rap god", "eminem");
+    print_library(table);
+    printf("–––Adding \"santa tell me\" by ariana grande\n");
+    add_song(table, "santa tell me", "ariana grande");
+    print_library(table);
+
+    printf("\nTesting Search Song\n");
+    printf("–––Searching for \"beautiful people\" by ed sheeran\n");
     head = search_song(table, "beautiful people", "ed sheeran");
     print_list(head);
 
-    //make sure to test random, both song comps, and size
-  return 0;
+    return 0;
 }
