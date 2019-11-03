@@ -36,8 +36,6 @@ void print_letter(struct song_node *table[27], char letter) {
     print_list(table[i]);
 }
 
-// print out all the songs of a certain artist
-
 
 // print out entire library
 void print_library(struct song_node *table[27]) {
@@ -48,6 +46,12 @@ void print_library(struct song_node *table[27]) {
             print_list(table[i]);
         }
     }
+}
+
+// print out all the songs of a certain artist
+void print_library(struc song_node *table[27], char *author) {
+    int letter = letterChar(author[0]);
+    
 }
 
 // shuffle

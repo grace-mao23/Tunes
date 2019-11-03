@@ -269,5 +269,24 @@ int main() {
     printf("–––Searching for [gmtn]\n");
     search = search_artist(table, "gmtn");
     print_list(search);
+    printf("–––Searching for [clean bandit]\n");
+    search = search_artist(table, "clean bandit");
+    print_list(search);
+
+    printf("\nTesting Print Letter\n\n");
+    printf("–––Printing Library\n");
+    print_library(table);
+    printf("–––Printing 'a'\n");
+    print_letter(table, 'a');
+    printf("–––Printing 'e'\n");
+    print_letter(table, 'e');
+    printf("–––Printing 'g'\n");
+    print_letter(table, 'g');
+    printf("–––Printing 'l'\n");
+    print_letter(table, 'l');
+    printf("–––Printing ')'\n");
+    print_letter(table, ')');
+    printf("–––Printing 'q'\n");
+    print_letter(table, 'q');
     return 0;
 }
