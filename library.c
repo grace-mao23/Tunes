@@ -98,6 +98,9 @@ void print_random(struct song_node *table[27]) {
 }
 
 // delete a song
-
+void remove_song(struct song_node *table[27], char *name, char *author) {
+    int letter = letterChar(author[0]);
+    table[letter] = remove_node(table[letter], name, author);
+}
 
 // clear the library

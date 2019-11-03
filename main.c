@@ -119,16 +119,16 @@ int main() {
     printf("\nTesting Remove\n\n");
     printf("––––Printing List\n");
     print_list(head);
-    printf("––––Removing [\"santa tell me\" by ariana grande\n");
+    printf("––––Removing [\"santa tell me\" by ariana grande]\n");
     head = remove_node(head, "santa tell me", "ariana grande");
     print_list(head);
-    printf("––––Removing [\"the one that got away\" by katy perry\n");
+    printf("––––Removing [\"the one that got away\" by katy perry]\n");
     head = remove_node(head, "the one that got away", "katy perry");
     print_list(head);
-    printf("––––Removing [\"beautiful people\" by ed sheeran\n");
+    printf("––––Removing [\"beautiful people\" by ed sheeran]\n");
     head = remove_node(head, "beautiful people", "ed sheeran");
     print_list(head);
-    printf("––––Removing [\"perfect\" by ed sheeran\n");
+    printf("––––Removing [\"perfect\" by ed sheeran]\n");
     head = remove_node(head, "perfect", "ed sheeran");
     print_list(head);
 
@@ -319,5 +319,21 @@ int main() {
     print_random(table);
     printf("––––Test 4\n");
     print_random(table);
+
+    printf("\nTesting Remove\n\n");
+    printf("––––Printing Library\n");
+    print_library(table);
+    printf("––––Removing [\"santa tell me\" by ariana grande]\n");
+    remove_song(table, "santa tell me", "ariana grande");
+    print_library(table);
+    printf("––––Removing [\"the one that got away\" by katy perry]\n");
+    remove_song(table, "the one that got away", "katy perry");
+    print_library(table);
+    printf("––––Removing [\"beautiful people\" by ed sheeran]\n");
+    remove_song(table, "beautiful people", "ed sheeran");
+    print_library(table);
+    printf("––––Removing [\"perfect\" by ed sheeran]\n");
+    remove_song(table, "perfect", "ed sheeran");
+    print_library(table);
     return 0;
 }
