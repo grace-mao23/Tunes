@@ -13,21 +13,21 @@ int letterChar(char c) {
 }
 
 // add song nodes
-void add_song(struct song_node *table[27], char *name, char *artist) {
-    int place = letterChar(artist[0]);
-    table[place] = insert_sort(table[place], name, artist);
+void add_song(struct song_node *table[27], char *name, char *author) {
+    int place = letterChar(author[0]);
+    table[place] = insert_sort(table[place], name, author);
 }
 
 // search for a song given song and artist name
-struct song_node * search_song(struct song_node *table[27], char *name, char *artist) {
-    int letter = letterChar(artist[0]);
-    return find_song(table[letter], name, artist);
+struct song_node * search_song(struct song_node *table[27], char *name, char *author) {
+    int letter = letterChar(author[0]);
+    return find_song(table[letter], name, author);
 }
 
 // search for an artist
-struct song_node * search_artist(struct song_node *table[27], char *artist) {
-    int letter = letterChar(artist[0]);
-    return find_artist(table[letter], artist);
+struct song_node * search_artist(struct song_node *table[27], char *author) {
+    int letter = letterChar(author[0]);
+    return find_artist(table[letter], author);
 }
 
 // print out all entries under a certain letter

@@ -252,6 +252,22 @@ int main() {
     print_list(search);
 
     printf("\nTesting Search Artist\n\n");
-
+    printf("–––Printing Library\n");
+    print_library(table);
+    printf("–––Searching for [ariana grande]\n");
+    search = search_artist(table, "ariana grande");
+    print_list(search);
+    printf("–––Searching for [ed sheeran]\n");
+    search = search_artist(table, "ed sheeran");
+    print_list(search);
+    printf("–––Searching for [eminem]\n");
+    search = search_artist(table, "eminem");
+    print_list(search);
+    printf("–––Searching for [ellie goulding]\n");
+    search = search_artist(table, "ellie goulding");
+    print_list(search);
+    printf("–––Searching for [gmtn]\n");
+    search = search_artist(table, "gmtn");
+    print_list(search);
     return 0;
 }
