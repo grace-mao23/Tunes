@@ -143,6 +143,18 @@ int main() {
     printf("Should be: 5\nPrinted: ");
     printf("%d\n", size(compare));
 
+    printf("\nTesting Random\n");
+    printf("–––Test 1\n");
+    print_list(find_random(head));
+    printf("–––Test 2\n");
+    print_list(find_random(head));
+    printf("–––Test 3\n");
+    print_list(find_random(head));
+    printf("–––Test 4\n");
+    print_list(find_random(head));
+    printf("–––Test 5\n");
+    print_list(find_random(head));
+
     printf("\nTesting Free List\n");
     head = free_list(head);
     printf("list after freeing: \n");
@@ -151,7 +163,7 @@ int main() {
     struct song_node *table[27];
     int i = 0;
     for (; i < 27; i++) {
-      table[i] = NULL;
+        table[i] = NULL;
     }
 
     printf("\nLIBRARY TESTS\n");
