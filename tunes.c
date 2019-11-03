@@ -6,7 +6,7 @@
 // print the entire list
 void print_list(struct song_node *n) {
     while (n != NULL) {
-        printf(" %s: %s |", n->artist, n->title);
+        printf(" \"%s\" by %s |", n->title, n->artist);
         n = n->next;
     }
     printf("\n");
