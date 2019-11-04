@@ -318,7 +318,7 @@ int main() {
     printf("––––Printing 'q'\n");
     print_letter(table, 'q');
 
-    printf("\nTesting Print Letter\n\n");
+    printf("\nTesting Print Artist\n\n");
     printf("––––Printing Library\n");
     print_library(table);
     printf("––––Printing [ariana grande]\n");

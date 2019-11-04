@@ -65,16 +65,7 @@ void print_artist(struct song_node *table[27], char *author) {
 void print_random(struct song_node *table[27]) {
     struct song_node *entirety = NULL;
     int i = 0;
-    for (; i < 10; i++) {
-      int index = rand() % 26;
-      if (size(table[index]) > 0) {
-        struct song_node *song = find_random(table[index]);
-        printf("\"%s\" by %s\n", song->title, song->artist);
-      } else {
-        i--;
-      }
-    }
-    /*for (; i < 27; i++) {
+    for (; i < 27; i++) {
         if (table[i] != NULL) {
             struct song_node *first = table[i];
             struct song_node *second = first->next;
@@ -94,7 +85,7 @@ void print_random(struct song_node *table[27]) {
             struct song_node *current = find_random(entirety);
             printf("\"%s\" by %s\n", current->title, current->artist);
         }
-    }*/
+    }
 }
 
 // delete a song
@@ -107,8 +98,8 @@ void remove_song(struct song_node *table[27], char *name, char *author) {
 void free_library(struct song_node *table[27]) {
     int i = 0;
     for (; i < 27; i++) {
-      //  if (table[i] != NULL) {
+        if (table[i] != NULL) {
             table[i] = free_list(table[i]);
-        //}
+        }
     }
 }

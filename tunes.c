@@ -10,7 +10,7 @@ void print_list(struct song_node *n) {
         n = n->next;
     }
     printf("\n");
-}
+  }
 
 // insert node at front
 struct song_node *insert_front(struct song_node *n, char *name, char *author) {
@@ -23,42 +23,20 @@ struct song_node *insert_front(struct song_node *n, char *name, char *author) {
 
 // insert node in order
 struct song_node *insert_sort(struct song_node *n, char *name, char *author) {
-    if (n == NULL) {
+    if (n == NULL){
       return insert_front(n, name, author);
     }
-    struct song_node *p = n;
+    struct song_node *temp = n;
     struct song_node *prev = NULL;
-    while (p && songcmp_full(p, name, author) <= 0) {
-      prev = p;
-      p = p->next;
+    while (temp && songcmp_full(temp, name, author) <= 0) {
+      prev = temp;
+      temp = temp->next;
     }
-    if (p == NULL) {
-      return insert_front(p, name, author);
+    if (prev == NULL){
+      return insert_front(temp, name, author);
     }
-    prev->next = insert_front(p, name, author);
+    prev->next = insert_front(temp, name, author);
     return n;
-    /*struct song_node *p = malloc(sizeof(struct song_node));
-    strcpy(p->title, name);
-    strcpy(p->artist, author);
-    struct song_node *head = n;
-    struct song_node *first = n;
-    struct song_node *second = first->next;
-
-    if (songcmp_short(first, p) > 0) {
-        p->next = first;
-        return p;
-    }
-    while (second != NULL) {
-        if (songcmp_short(second, p) > 0) {
-            p->next = second;
-            first->next = p;
-            return head;
-        }
-        first = second;
-        second = second->next;
-    }
-    first->next = p;
-    return head;*/
 }
 
 // helper function to compare songs
@@ -132,38 +110,25 @@ int size(struct song_node *p) {
     p=p->next;
   }
   return i;
-    /*struct song_node *first = p;
-    struct song_node *second = first->next;
-
-    if (first == NULL) {
-        return 0;
-    }
-
-    int i = 1;
-    while (second != NULL) {
-        i++;
-        first = second;
-        second = second->next;
-    }
-    return i;*/
 }
 
 // remove a single specified node
 struct song_node *remove_node(struct song_node *front, char *name, char *author) {
     struct song_node *p = front;
-    struct song_node *prev = NULL;
-    while (p != NULL) {
-        if (songcmp_full(p, name, author) == 0) {
-            if (p == front) {
-                front = p->next;
-            } else {
-                prev->next = p->next;
-            }
-            free(front);
-            return front;
+    struct song_node *prev;
+    while (p != NULL){
+      if (songcmp_full(p, name, author) == 0){
+        if (p == front){
+          front = p->next;
         }
-        prev = p;
-        p = p->next;
+        else{
+          prev->next = p->next;
+        }
+        free(p);
+        return front;
+      }
+      prev = p;
+      p = p->next;
     }
     return front;
 }
