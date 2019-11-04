@@ -23,9 +23,20 @@ struct song_node *insert_front(struct song_node *n, char *name, char *author) {
 
 // insert node in order
 struct song_node *insert_sort(struct song_node *n, char *name, char *author) {
-    if (n == NULL) {
+    /*if (n == NULL) {
       return insert_front(n, name, author);
     }
+    struct song_node *p = n;
+    struct song_node *prev = NULL;
+    while (p && songcmp_full(p, name, author) <= 0) {
+      prev = p;
+      p = p->next;
+    }
+    if (p == NULL) {
+      return insert_front(p, name, author);
+    }
+    prev->next = insert_front(p, name, author);
+    return n;*/
     struct song_node *p = malloc(sizeof(struct song_node));
     strcpy(p->title, name);
     strcpy(p->artist, author);
@@ -138,15 +149,13 @@ struct song_node *remove_node(struct song_node *front, char *name, char *author)
     struct song_node *prev = NULL;
     while (p) {
         if (songcmp_full(p, name, author) == 0) {
-            if (prev) {
-                prev->next = p->next;
-                free(p);
-                return front;
-            } else {
+            if (p == front) {
                 front = p->next;
-                free(p);
-                return front;
+            } else {
+                prev->next = p->next;
             }
+            free(front);
+            return front;
         }
         prev = p;
         p = p->next;
@@ -157,7 +166,7 @@ struct song_node *remove_node(struct song_node *front, char *name, char *author)
 
 // free the entire list
 struct song_node *free_list(struct song_node *n) {
-    struct song_node *p;
+    struct song_node *p = n;
     while(n != NULL) {
         p = n->next;
         printf("freeing node: [%s: %s]\n", n->artist, n->title);
