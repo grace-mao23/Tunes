@@ -65,6 +65,15 @@ void print_artist(struct song_node *table[27], char *author) {
 void print_random(struct song_node *table[27]) {
     struct song_node *entirety = NULL;
     int i = 0;
+    for (; i < 10; i++) {
+      int index = rand() % 26;
+      if (size(table[index]) > 0) {
+        struct song_node *song = find_random(table[index]);
+        printf("\"%s\" by %s\n", song->title, song->artist);
+      } else {
+        i--;
+      }
+    }
     /*for (; i < 27; i++) {
         if (table[i] != NULL) {
             struct song_node *first = table[i];

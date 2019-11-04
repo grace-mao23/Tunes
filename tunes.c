@@ -23,7 +23,7 @@ struct song_node *insert_front(struct song_node *n, char *name, char *author) {
 
 // insert node in order
 struct song_node *insert_sort(struct song_node *n, char *name, char *author) {
-    /*if (n == NULL) {
+    if (n == NULL) {
       return insert_front(n, name, author);
     }
     struct song_node *p = n;
@@ -36,8 +36,8 @@ struct song_node *insert_sort(struct song_node *n, char *name, char *author) {
       return insert_front(p, name, author);
     }
     prev->next = insert_front(p, name, author);
-    return n;*/
-    struct song_node *p = malloc(sizeof(struct song_node));
+    return n;
+    /*struct song_node *p = malloc(sizeof(struct song_node));
     strcpy(p->title, name);
     strcpy(p->artist, author);
     struct song_node *head = n;
@@ -58,7 +58,7 @@ struct song_node *insert_sort(struct song_node *n, char *name, char *author) {
         second = second->next;
     }
     first->next = p;
-    return head;
+    return head;*/
 }
 
 // helper function to compare songs
@@ -83,7 +83,7 @@ int songcmp_short(struct song_node *p, struct song_node *q) {
 
 // find song based on artist and song name
 struct song_node *find_song(struct song_node *p, char *name, char *author) {
-    while (p) {
+    while (p != NULL) {
         if (songcmp_full(p, name, author) == 0) {
             return p;
         }
@@ -94,7 +94,7 @@ struct song_node *find_song(struct song_node *p, char *name, char *author) {
 
 // find first song based on artist
 struct song_node *find_artist(struct song_node *p, char *author) {
-    while (p) {
+    while (p != NULL) {
         if (strcmp(p->artist, author) == 0) {
             return p;
         }
@@ -110,15 +110,14 @@ struct song_node *find_random(struct song_node *p) {
     }
 
     int i = rand() % size(p);
-    struct song_node *first = p;
-    struct song_node *second = first->next;
+    //struct song_node *first = p;
+    //struct song_node *second = first->next;
 
     while (i > 0) {
-        i--;
-        first = second;
-        second = second->next;
+      p=p->next;
+      i--;
     }
-    return first;
+    return p;
 
 }
 
@@ -127,7 +126,13 @@ int size(struct song_node *p) {
     if (p == NULL) {
         return 0;
     }
-    struct song_node *first = p;
+    int i = 0;
+  while (p != NULL) {
+    i++;
+    p=p->next;
+  }
+  return i;
+    /*struct song_node *first = p;
     struct song_node *second = first->next;
 
     if (first == NULL) {
@@ -140,14 +145,14 @@ int size(struct song_node *p) {
         first = second;
         second = second->next;
     }
-    return i;
+    return i;*/
 }
 
 // remove a single specified node
 struct song_node *remove_node(struct song_node *front, char *name, char *author) {
     struct song_node *p = front;
     struct song_node *prev = NULL;
-    while (p) {
+    while (p != NULL) {
         if (songcmp_full(p, name, author) == 0) {
             if (p == front) {
                 front = p->next;
@@ -174,5 +179,5 @@ struct song_node *free_list(struct song_node *n) {
         n = p;
     }
     n = NULL;
-    return n;
+    return p;
 }
